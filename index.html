@@ -6,28 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/90ee69adea.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Ohmyfood</title>
 </head>
 
 <body>
     <header>
-        <nav>
-            <div><img src="./images/logo/ohmyfood.png" alt="logo Ohmyfood"></div>
-            <div><i class="fa-solid fa-location-dot"></i>Paris,Belleville</div>
+        <nav class="flex-center">
+            <img src="./images/logo/ohmyfood.png" alt="logo Ohmyfood">
         </nav>
         <section>
-            <h2>Réservez le menu qui vous convient</h2>
-            <p>Découvrez des restaurants d'exception, séléctionnés par nos soins.</p>
-            <button>Explorez nos restaurants</button>
+            <div class="flex-center location"><i class="fa-solid fa-location-dot image"></i>Paris,Belleville</div>
+            <div class="flex-column-center explications">
+                <h2>Réservez le menu qui vous convient</h2>
+                <p>Découvrez des restaurants d'exception, séléctionnés par nos soins.</p>
+                <button class="btn">Explorez nos restaurants</button>
+            </div>
         </section>
     </header>
     <main>
-        <section>
+        <section class="flex-column-center fonctionnement">
             <h2>fonctionnement</h2>
-            <div><i class="fa-solid fa-mobile-screen"></i>Choisissez un restaurant</div>
-            <div><i class="fa-solid fa-list"></i>Composez votre menu</div>
-            <div><i class="fa-solid fa-store"></i>Déguster au restaurant</div>
+            <div class="choix"><i class="fa-solid fa-mobile-screen"></i>Choisissez un restaurant</div>
+            <div class="choix"><i class="fa-solid fa-list"></i>Composez votre menu</div>
+            <div class="choix"><i class="fa-solid fa-store"></i>Déguster au restaurant</div>
         </section>
         <section>
             <h2>restaurants</h2>

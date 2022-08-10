@@ -1,0 +1,98 @@
+@import "libs/normalize.scss";
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+$primaire : #9356DC;
+$secondaire : #FF79DA;
+$tertiaire : #99E2D0;
+$gris : #7E7E7E;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Shrikhand', cursive;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* barre de navigation, logo */
+
+nav {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    img {
+        width: 50%;
+    }
+}
+
+/*localisation*/
+
+.location {
+    background-color: #EAEAEA;
+    height: 50px;
+    font-weight: bold;
+
+    .image {
+        margin-right: 10px;
+    }
+
+}
+
+/* explications */
+.explications {
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+    background-color: #F6F6F6;
+}
+
+.btn {
+    height: 50px;
+    border: 0px;
+    color: white;
+    font-weight: bolder;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 25px 25px 25px 25px;
+    background: linear-gradient(to top left, $primaire 0%, $secondaire 100%);
+}
+
+/* fonctionnements */
+.fonctionnement {
+    padding-left: 5%;
+    align-items: flex-start;
+
+    .fa-solid {
+        color: $gris;
+    }
+}
+
+.choix {
+    height: 50px;
+    width: 90%;
+    border-radius: 25px 25px 25px 25px;
+    background-color: #d1c6c6;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
