@@ -1,0 +1,28 @@
+%flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%flex-column-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+%choixgenerique {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    border-radius: 15px 15px 15px 15px;
+    background-color: #F6F6F6;
+    display: flex;
+    box-shadow: 4px 4px 4px rgba(187, 184, 184, 0.5);
+
+    &:hover {
+        background-color: lighten(#F6F6F6, 5%);
+        box-shadow: 4px 4px 4px darken(rgba(187, 184, 184, 1), 20%);
+    }
+}
