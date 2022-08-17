@@ -309,8 +309,29 @@ template {
   display: none;
 }
 
-a {
+/* couleur */
+.plats, .choix {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  border-radius: 15px 15px 15px 15px;
+  background-color: #F6F6F6;
+  display: flex;
+  box-shadow: 4px 4px 4px rgba(187, 184, 184, 0.5);
+}
+.plats:hover, .choix:hover {
+  background-color: white;
+  box-shadow: 4px 4px 4px #898484;
+}
+
+a,
+a:visited,
+a:active,
+a:link,
+a:hover {
   text-decoration: none;
+  color: black;
 }
 
 body {
@@ -338,10 +359,6 @@ nav {
 }
 nav img {
   width: 50%;
-}
-nav .fleche {
-  width: 50px;
-  height: 100%;
 }
 
 /*localisation*/
@@ -374,6 +391,9 @@ nav .fleche {
   border-radius: 25px 25px 25px 25px;
   background: linear-gradient(to top left, #9356DC 0%, #FF79DA 100%);
 }
+.btn:hover {
+  background: linear-gradient(to top left, #ae80e5 0%, #fface8 100%);
+}
 
 /* fonctionnements */
 .fonctionnement {
@@ -384,17 +404,6 @@ nav .fleche {
 }
 .fonctionnement .fa-solid {
   color: #7E7E7E;
-}
-
-.plats, .choix {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 10px;
-  border-radius: 15px 15px 15px 15px;
-  background-color: #F6F6F6;
-  display: flex;
-  box-shadow: 4px 4px 4px rgba(187, 184, 184, 0.5);
 }
 
 .choix {
@@ -499,8 +508,17 @@ footer div :first-child {
   border-top-left-radius: 35px;
   border-top-right-radius: 35px;
   z-index: 1000;
-  margin-top: -50px;
+  margin-top: -40px;
   padding-bottom: 20px;
+  position: relative;
+}
+
+.fleche {
+  position: absolute;
+  left: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .menu .titre {

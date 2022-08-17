@@ -1,18 +1,16 @@
 @import "libs/normalize.scss";
+@import "libs/_variables.scss";
+@import "libs/_placeholders.scss";
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-$primaire : #9356DC;
-$secondaire : #FF79DA;
-$tertiaire : #99E2D0;
-$gris : #7E7E7E;
-
-
-
-
-
-a {
+a,
+a:visited,
+a:active,
+a:link,
+a:hover {
     text-decoration: none;
+    color: black;
 }
 
 body {
@@ -41,11 +39,6 @@ nav {
 
     img {
         width: 50%;
-    }
-
-    .fleche {
-        width: 50px;
-        height: 100%;
     }
 }
 
@@ -81,6 +74,11 @@ nav {
     padding-right: 20px;
     border-radius: 25px 25px 25px 25px;
     background: linear-gradient(to top left, $primaire 0%, $secondaire 100%);
+
+    &:hover {
+        background: linear-gradient(to top left, lighten($primaire, 10%) 0%, lighten($secondaire, 10%) 100%);
+    }
+
 }
 
 /* fonctionnements */
@@ -97,25 +95,12 @@ nav {
     }
 }
 
-%choixgenerique {
-
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-    border-radius: 15px 15px 15px 15px;
-    background-color: #F6F6F6;
-    display: flex;
-    box-shadow: 4px 4px 4px rgba(187, 184, 184, 0.5);
-}
-
 .choix {
     @extend %choixgenerique;
     height: 50px;
     align-items: center;
     justify-content: flex-start;
     font-weight: bold;
-
 
     .list {
         display: flex;
@@ -230,8 +215,17 @@ footer {
     border-top-left-radius: 35px;
     border-top-right-radius: 35px;
     z-index: 1000;
-    margin-top: -50px;
+    margin-top: -40px;
     padding-bottom: 20px;
+    position: relative;
+}
+
+.fleche {
+    position: absolute;
+    left: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .menu {
