@@ -506,6 +506,8 @@ nav img {
 .restaurants .carte-restaurant .detail .titre {
   font-weight: bolder;
   margin-bottom: 10px;
+  padding-left: 10px;
+  font-family: "Roboto", sans-serif;
 }
 .restaurants .carte-restaurant .detail .description {
   padding-left: 10px;
@@ -546,6 +548,14 @@ footer div :first-child {
   padding-bottom: 20px;
   position: relative;
 }
+.conteneur .titre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 30px;
+  font-family: "Shrikhand", cursive;
+}
 @media screen and (min-width: 992px) {
   .conteneur {
     margin-top: 10px;
@@ -563,6 +573,7 @@ footer div :first-child {
 .menu-section {
   align-items: flex-start;
   height: 100%;
+  width: 100%;
 }
 .menu-section :first-child {
   margin-left: 20px;
@@ -577,15 +588,6 @@ footer div :first-child {
   align-items: center;
   width: 50px;
   height: 50px;
-}
-
-.titre {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: 10px;
-  padding-right: 30px;
-  font-family: "Shrikhand", cursive;
 }
 
 .img {
