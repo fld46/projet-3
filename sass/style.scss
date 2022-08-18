@@ -17,25 +17,14 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.flex-column-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
 
 /* barre de navigation, logo */
 
 nav {
+    @extend %flex-center;
     margin-top: 10px;
     margin-bottom: 10px;
-    justify-content: space-between;
+    justify-content: space-around;
 
     img {
         width: 50%;
@@ -45,6 +34,7 @@ nav {
 /*localisation*/
 
 .location {
+    @extend %flex-center;
     background-color: #EAEAEA;
     height: 50px;
     font-weight: bold;
@@ -58,14 +48,20 @@ nav {
 
 /* explications */
 .explications {
+    @extend %flex-column-center;
     text-align: center;
     padding-left: 10%;
     padding-right: 10%;
-    padding-bottom: 10%;
+    padding-bottom: 20px;
     background-color: #F6F6F6;
 }
 
+.center {
+    @extend %flex-center;
+}
+
 .btn {
+
     height: 50px;
     border: 0px;
     color: white;
@@ -73,25 +69,35 @@ nav {
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 25px 25px 25px 25px;
+    box-shadow: 4px 4px 4px rgba(187, 184, 184, 0.5);
     background: linear-gradient(to top left, $primaire 0%, $secondaire 100%);
 
     &:hover {
         background: linear-gradient(to top left, lighten($primaire, 10%) 0%, lighten($secondaire, 10%) 100%);
+        box-shadow: 4px 4px 4px darken(rgba(187, 184, 184, 1), 20%);
     }
 
 }
 
 /* fonctionnements */
-.fonctionnement {
 
-    align-items: flex-start;
-
-    :first-child {
+.fonctionnement-section {
+    h2 {
         margin-left: 20px;
     }
+}
+
+.fonctionnement {
+    @extend %flex-column-center;
+    align-items: flex-start;
 
     .fa-solid {
         color: $gris;
+    }
+
+    @media #{$tablette} {
+        justify-content: space-between;
+        flex-direction: row;
     }
 }
 
@@ -124,18 +130,34 @@ nav {
         align-items: center;
         width: 20px;
     }
+
+    @media #{$tablette} {
+        width: 30%;
+    }
 }
 
 /* restaurants */
+.restaurants-section {
+
+
+    h2 {
+        padding-top: 20px;
+        margin-left: 20px;
+    }
+
+    background-color: #F6F6F6;
+}
 
 .restaurants {
+    @extend %flex-column-center;
     background-color: #F6F6F6;
     margin-top: 30px;
     padding-bottom: 30px;
 
-    h2 {
-        margin-left: 20px;
-        align-self: flex-start;
+    @media #{$tablette} {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
     }
 
     .carte-restaurant {
@@ -149,6 +171,10 @@ nav {
         min-height: 30px;
         box-shadow: 4px 4px 4px rgba(187, 184, 184, 0.5);
 
+        @media #{$tablette} {
+            width: 40%;
+        }
+
         .img {
             width: 100%;
 
@@ -159,7 +185,6 @@ nav {
                 height: 200px;
             }
         }
-
 
         .detail {
             width: 100%;
@@ -175,6 +200,10 @@ nav {
 
             }
 
+            .description {
+                padding-left: 10px;
+            }
+
             .image {
                 width: 80px;
                 display: flex;
@@ -183,8 +212,8 @@ nav {
             }
         }
     }
-
 }
+
 
 /* footer */
 footer {
@@ -194,7 +223,6 @@ footer {
     padding-left: 20px;
     padding-bottom: 20px;
     font-size: smaller;
-
 
     h3 {
         font-family: 'Shrikhand', cursive;
@@ -218,6 +246,10 @@ footer {
     margin-top: -40px;
     padding-bottom: 20px;
     position: relative;
+
+    @media #{$pc} {
+        margin-top: 10px;
+    }
 }
 
 .fleche {
@@ -228,16 +260,23 @@ footer {
     justify-content: center;
 }
 
+.menu-section {
+    @extend %flex-column-center;
+    align-items: flex-start;
+    height: 100%;
+
+    :first-child {
+        margin-left: 20px;
+    }
+
+    .fa-solid {
+        color: $gris;
+    }
+
+}
+
 .menu {
 
-    .titre {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-left: 30px;
-        padding-right: 30px;
-        font-family: 'Shrikhand', cursive;
-    }
 
     .image {
         display: flex;
@@ -250,6 +289,15 @@ footer {
 
 }
 
+.titre {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 30px;
+    font-family: 'Shrikhand', cursive;
+}
+
 .img {
     width: 100%;
 
@@ -257,6 +305,10 @@ footer {
         width: 100%;
         object-fit: cover;
         height: 200px;
+
+        @media #{$pc} {
+            height: 400px;
+        }
 
     }
 }
@@ -267,6 +319,13 @@ footer {
     margin-top: 20px;
 }
 
+.menu {
+    @media #{$pc} {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
 .plats {
     @extend %choixgenerique;
     height: 80px;
@@ -274,6 +333,7 @@ footer {
     align-items: flex-start;
     justify-content: center;
     background-color: white;
+    width: 95%;
 
     .gras {
         font-weight: bold;
@@ -284,6 +344,7 @@ footer {
         justify-content: space-between;
         width: 100%;
         margin-top: 10px;
+
 
         :first-child {
             width: 70%;

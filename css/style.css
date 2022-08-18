@@ -310,6 +310,20 @@ template {
 }
 
 /* couleur */
+/* responsive */
+.center, .location, nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-section, .restaurants, .fonctionnement, .explications {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .plats, .choix {
   width: 90%;
   margin-left: auto;
@@ -338,24 +352,11 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.flex-column-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
 /* barre de navigation, logo */
 nav {
   margin-top: 10px;
   margin-bottom: 10px;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 nav img {
   width: 50%;
@@ -377,7 +378,7 @@ nav img {
   text-align: center;
   padding-left: 10%;
   padding-right: 10%;
-  padding-bottom: 10%;
+  padding-bottom: 20px;
   background-color: #F6F6F6;
 }
 
@@ -389,21 +390,30 @@ nav img {
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 25px 25px 25px 25px;
+  box-shadow: 4px 4px 4px rgba(187, 184, 184, 0.5);
   background: linear-gradient(to top left, #9356DC 0%, #FF79DA 100%);
 }
 .btn:hover {
   background: linear-gradient(to top left, #ae80e5 0%, #fface8 100%);
+  box-shadow: 4px 4px 4px #898484;
 }
 
 /* fonctionnements */
+.fonctionnement-section h2 {
+  margin-left: 20px;
+}
+
 .fonctionnement {
   align-items: flex-start;
 }
-.fonctionnement :first-child {
-  margin-left: 20px;
-}
 .fonctionnement .fa-solid {
   color: #7E7E7E;
+}
+@media screen and (min-width:768px) {
+  .fonctionnement {
+    justify-content: space-between;
+    flex-direction: row;
+  }
 }
 
 .choix {
@@ -433,16 +443,32 @@ nav img {
   align-items: center;
   width: 20px;
 }
+@media screen and (min-width:768px) {
+  .choix {
+    width: 30%;
+  }
+}
 
 /* restaurants */
+.restaurants-section {
+  background-color: #F6F6F6;
+}
+.restaurants-section h2 {
+  padding-top: 20px;
+  margin-left: 20px;
+}
+
 .restaurants {
   background-color: #F6F6F6;
   margin-top: 30px;
   padding-bottom: 30px;
 }
-.restaurants h2 {
-  margin-left: 20px;
-  align-self: flex-start;
+@media screen and (min-width:768px) {
+  .restaurants {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
 }
 .restaurants .carte-restaurant {
   width: 95%;
@@ -454,6 +480,11 @@ nav img {
   margin-bottom: 15px;
   min-height: 30px;
   box-shadow: 4px 4px 4px rgba(187, 184, 184, 0.5);
+}
+@media screen and (min-width:768px) {
+  .restaurants .carte-restaurant {
+    width: 40%;
+  }
 }
 .restaurants .carte-restaurant .img {
   width: 100%;
@@ -475,6 +506,9 @@ nav img {
 .restaurants .carte-restaurant .detail .titre {
   font-weight: bolder;
   margin-bottom: 10px;
+}
+.restaurants .carte-restaurant .detail .description {
+  padding-left: 10px;
 }
 .restaurants .carte-restaurant .detail .image {
   width: 80px;
@@ -512,6 +546,11 @@ footer div :first-child {
   padding-bottom: 20px;
   position: relative;
 }
+@media screen and (min-width: 992px) {
+  .conteneur {
+    margin-top: 10px;
+  }
+}
 
 .fleche {
   position: absolute;
@@ -521,20 +560,32 @@ footer div :first-child {
   justify-content: center;
 }
 
-.menu .titre {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: 30px;
-  padding-right: 30px;
-  font-family: "Shrikhand", cursive;
+.menu-section {
+  align-items: flex-start;
+  height: 100%;
 }
+.menu-section :first-child {
+  margin-left: 20px;
+}
+.menu-section .fa-solid {
+  color: #7E7E7E;
+}
+
 .menu .image {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50px;
   height: 50px;
+}
+
+.titre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 30px;
+  font-family: "Shrikhand", cursive;
 }
 
 .img {
@@ -545,11 +596,23 @@ footer div :first-child {
   object-fit: cover;
   height: 200px;
 }
+@media screen and (min-width: 992px) {
+  .img img {
+    height: 400px;
+  }
+}
 
 .border {
   border-bottom: solid 3px #99E2D0;
   margin-bottom: 20px;
   margin-top: 20px;
+}
+
+@media screen and (min-width: 992px) {
+  .menu {
+    display: flex;
+    justify-content: space-evenly;
+  }
 }
 
 .plats {
@@ -558,6 +621,7 @@ footer div :first-child {
   align-items: flex-start;
   justify-content: center;
   background-color: white;
+  width: 95%;
 }
 .plats .gras {
   font-weight: bold;
