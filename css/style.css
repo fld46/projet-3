@@ -537,6 +537,9 @@ footer div {
 footer div :first-child {
   width: 25px;
 }
+footer .contact {
+  color: white;
+}
 
 /*menus*/
 .conteneur {
