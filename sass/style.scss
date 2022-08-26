@@ -1,6 +1,7 @@
 @import "libs/normalize.scss";
 @import "libs/_variables.scss";
 @import "libs/_placeholders.scss";
+@import "libs/_animations.scss";
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
@@ -39,9 +40,22 @@ nav {
     height: 50px;
     font-weight: bold;
     box-shadow: inset 0px 2px 2px 2px rgba(187, 184, 184, 0.5);
+    padding-left: 50px;
 
     .image {
         margin-right: 10px;
+    }
+
+    input {
+        height: 80%;
+        width: 200px;
+        background-color: #EAEAEA;
+        font-size: 18px;
+        color: black;
+        font-weight: bold;
+        outline: none;
+        border: none;
+
     }
 
 }
@@ -75,6 +89,7 @@ nav {
     &:hover {
         background: linear-gradient(to top left, lighten($primaire, 10%) 0%, lighten($secondaire, 10%) 100%);
         box-shadow: 4px 4px 4px darken(rgba(187, 184, 184, 1), 20%);
+        cursor: pointer;
     }
 
 }
@@ -91,8 +106,10 @@ nav {
     @extend %flex-column-center;
     align-items: flex-start;
 
+
     .fa-solid {
         color: $gris;
+
     }
 
     @media #{$tablette} {
@@ -129,6 +146,15 @@ nav {
         justify-content: center;
         align-items: center;
         width: 20px;
+    }
+
+    &:hover {
+
+        .fa-solid {
+            color: $primaire;
+        }
+
+        background-color: lighten($primaire, 37%);
     }
 
     @media #{$tablette} {
@@ -171,12 +197,17 @@ nav {
         min-height: 30px;
         box-shadow: 4px 4px 4px rgba(187, 184, 184, 0.5);
 
+        &:hover {
+            box-shadow: 4px 4px 4px darken(rgba(187, 184, 184, 0.5), 40%);
+        }
+
         @media #{$tablette} {
             width: 40%;
         }
 
         .img {
             width: 100%;
+            position: relative;
 
             img {
                 border-radius: 15px 15px 0 0;
@@ -184,6 +215,18 @@ nav {
                 object-fit: cover;
                 height: 200px;
             }
+        }
+
+        .nouveau {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #008766;
+            padding: 7px;
+            font-weight: bolder;
+            background-color: #99E2D0;
+            border-radius: 5%;
+
         }
 
         .detail {
@@ -210,6 +253,7 @@ nav {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+
             }
         }
     }
@@ -223,10 +267,11 @@ footer {
     padding-top: 10px;
     padding-left: 20px;
     padding-bottom: 20px;
-    font-size: smaller;
+    font-size: 1rem;
 
     h3 {
         font-family: 'Shrikhand', cursive;
+        font-size: 1.1rem;
     }
 
     div {
@@ -259,6 +304,32 @@ footer {
         padding-left: 10px;
         padding-right: 30px;
         font-family: 'Shrikhand', cursive;
+
+    }
+
+    .image {
+        position: relative;
+
+        i {
+            position: absolute;
+            left: -20px;
+
+            &:hover {
+                opacity: 0;
+            }
+        }
+
+        .color {
+            opacity: 0;
+            color: transparent;
+            -webkit-background-clip: text;
+            background: linear-gradient(to top left, $primaire 0%, $secondaire 100%);
+
+            &:hover {
+                opacity: 1;
+                transition: all 0.5s;
+            }
+        }
     }
 
     @media #{$pc} {
@@ -281,17 +352,21 @@ footer {
     width: 100%;
 
     :first-child {
-        margin-left: 20px;
+        margin-left: 10px;
     }
 
     .fa-solid {
         color: $gris;
     }
 
+    @media #{$pc} {
+        width: 30%;
+
+    }
+
 }
 
 .menu {
-
 
     .image {
         display: flex;
@@ -299,12 +374,8 @@ footer {
         align-items: center;
         width: 50px;
         height: 50px;
-
     }
-
 }
-
-
 
 .img {
     width: 100%;
@@ -331,20 +402,72 @@ footer {
     @media #{$pc} {
         display: flex;
         justify-content: space-evenly;
+
+    }
+}
+
+
+
+.plat {
+    display: flex;
+    width: 95%;
+    @extend %choixgenerique;
+    background-color: white;
+    height: 80px;
+    overflow: hidden;
+    animation: appear .6s;
+    animation-timing-function: cubic-bezier(.67, .22, .35, .86);
+    animation-fill-mode: both;
+    transform: scale(0);
+
+    @for $i from 0 to 9 {
+        &.delay-#{$i} {
+            animation-delay: #{$i / 10}s;
+        }
+    }
+
+    &:hover>.valide {
+        display: flex;
+        animation: valide 0.5s;
+
+        i {
+            animation: valide-rotation 0.5s;
+        }
+    }
+
+    .valide {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+        background-color: #99E2D0;
+        border-radius: 0px 15px 15px 0px;
+        transition-duration: 0.5s;
+
+        .fa-solid {
+            color: white;
+            margin: auto;
+        }
     }
 }
 
 .plats {
-    @extend %choixgenerique;
-    height: 80px;
+    display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    background-color: white;
-    width: 95%;
+    overflow: hidden;
+
 
     .gras {
         font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+
     }
 
     .description {
@@ -352,6 +475,7 @@ footer {
         justify-content: space-between;
         width: 100%;
         margin-top: 10px;
+
 
 
         :first-child {

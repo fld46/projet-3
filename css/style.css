@@ -324,7 +324,7 @@ template {
   flex-direction: column;
 }
 
-.plats, .choix {
+.plat, .choix {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -334,11 +334,41 @@ template {
   display: flex;
   box-shadow: 4px 4px 4px rgba(187, 184, 184, 0.5);
 }
-.plats:hover, .choix:hover {
+.plat:hover, .choix:hover {
   background-color: white;
   box-shadow: 4px 4px 4px #898484;
 }
 
+@keyframes valide {
+  from {
+    transform: translate(100%);
+  }
+  to {
+    transform: translate(0%);
+  }
+}
+@keyframes valide-rotation {
+  0% {
+    transform: rotate(-360deg);
+  }
+  33% {
+    transform: rotate(0deg);
+  }
+  66% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes appear {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 a,
 a:visited,
 a:active,
@@ -368,9 +398,20 @@ nav img {
   height: 50px;
   font-weight: bold;
   box-shadow: inset 0px 2px 2px 2px rgba(187, 184, 184, 0.5);
+  padding-left: 50px;
 }
 .location .image {
   margin-right: 10px;
+}
+.location input {
+  height: 80%;
+  width: 200px;
+  background-color: #EAEAEA;
+  font-size: 18px;
+  color: black;
+  font-weight: bold;
+  outline: none;
+  border: none;
 }
 
 /* explications */
@@ -396,6 +437,7 @@ nav img {
 .btn:hover {
   background: linear-gradient(to top left, #ae80e5 0%, #fface8 100%);
   box-shadow: 4px 4px 4px #898484;
+  cursor: pointer;
 }
 
 /* fonctionnements */
@@ -443,6 +485,12 @@ nav img {
   align-items: center;
   width: 20px;
 }
+.choix:hover {
+  background-color: #f7f2fc;
+}
+.choix:hover .fa-solid {
+  color: #9356DC;
+}
 @media screen and (min-width:768px) {
   .choix {
     width: 30%;
@@ -481,6 +529,9 @@ nav img {
   min-height: 30px;
   box-shadow: 4px 4px 4px rgba(187, 184, 184, 0.5);
 }
+.restaurants .carte-restaurant:hover {
+  box-shadow: 4px 4px 4px rgba(85, 82, 82, 0.5);
+}
 @media screen and (min-width:768px) {
   .restaurants .carte-restaurant {
     width: 40%;
@@ -488,12 +539,23 @@ nav img {
 }
 .restaurants .carte-restaurant .img {
   width: 100%;
+  position: relative;
 }
 .restaurants .carte-restaurant .img img {
   border-radius: 15px 15px 0 0;
   width: 100%;
   object-fit: cover;
   height: 200px;
+}
+.restaurants .carte-restaurant .nouveau {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: #008766;
+  padding: 7px;
+  font-weight: bolder;
+  background-color: #99E2D0;
+  border-radius: 5%;
 }
 .restaurants .carte-restaurant .detail {
   width: 100%;
@@ -526,10 +588,11 @@ footer {
   padding-top: 10px;
   padding-left: 20px;
   padding-bottom: 20px;
-  font-size: smaller;
+  font-size: 1rem;
 }
 footer h3 {
   font-family: "Shrikhand", cursive;
+  font-size: 1.1rem;
 }
 footer div {
   height: 20px;
@@ -559,6 +622,26 @@ footer .contact {
   padding-right: 30px;
   font-family: "Shrikhand", cursive;
 }
+.conteneur .image {
+  position: relative;
+}
+.conteneur .image i {
+  position: absolute;
+  left: -20px;
+}
+.conteneur .image i:hover {
+  opacity: 0;
+}
+.conteneur .image .color {
+  opacity: 0;
+  color: transparent;
+  -webkit-background-clip: text;
+  background: linear-gradient(to top left, #9356DC 0%, #FF79DA 100%);
+}
+.conteneur .image .color:hover {
+  opacity: 1;
+  transition: all 0.5s;
+}
 @media screen and (min-width: 992px) {
   .conteneur {
     margin-top: 10px;
@@ -579,10 +662,15 @@ footer .contact {
   width: 100%;
 }
 .menu-section :first-child {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 .menu-section .fa-solid {
   color: #7E7E7E;
+}
+@media screen and (min-width: 992px) {
+  .menu-section {
+    width: 30%;
+  }
 }
 
 .menu .image {
@@ -620,16 +708,79 @@ footer .contact {
   }
 }
 
-.plats {
+.plat {
+  display: flex;
+  width: 95%;
+  background-color: white;
   height: 80px;
+  overflow: hidden;
+  animation: appear 0.6s;
+  animation-timing-function: cubic-bezier(0.67, 0.22, 0.35, 0.86);
+  animation-fill-mode: both;
+  transform: scale(0);
+}
+.plat.delay-0 {
+  animation-delay: 0s;
+}
+.plat.delay-1 {
+  animation-delay: 0.1s;
+}
+.plat.delay-2 {
+  animation-delay: 0.2s;
+}
+.plat.delay-3 {
+  animation-delay: 0.3s;
+}
+.plat.delay-4 {
+  animation-delay: 0.4s;
+}
+.plat.delay-5 {
+  animation-delay: 0.5s;
+}
+.plat.delay-6 {
+  animation-delay: 0.6s;
+}
+.plat.delay-7 {
+  animation-delay: 0.7s;
+}
+.plat.delay-8 {
+  animation-delay: 0.8s;
+}
+.plat:hover > .valide {
+  display: flex;
+  animation: valide 0.5s;
+}
+.plat:hover > .valide i {
+  animation: valide-rotation 0.5s;
+}
+.plat .valide {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #99E2D0;
+  border-radius: 0px 15px 15px 0px;
+  transition-duration: 0.5s;
+}
+.plat .valide .fa-solid {
+  color: white;
+  margin: auto;
+}
+
+.plats {
+  display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  background-color: white;
-  width: 95%;
+  overflow: hidden;
 }
 .plats .gras {
   font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .plats .description {
   display: flex;
