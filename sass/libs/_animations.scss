@@ -11,17 +11,13 @@
 
 @keyframes valide-rotation {
     0% {
-        transform: rotate(-360deg);
+        transform: rotate(180deg);
 
     }
 
-    33% {
-        transform: rotate(0deg);
+    50% {
+        transform: rotate(90deg);
 
-    }
-
-    66% {
-        transform: rotate(360deg);
     }
 
     100% {
@@ -38,4 +34,18 @@
         transform: scale(1);
     }
 
+}
+
+@keyframes disappear {
+    to {
+        visibility: hidden;
+    }
+}
+
+@keyframes spin {
+
+    to {
+
+        transform: rotate(360deg);
+    }
 }

@@ -349,13 +349,10 @@ template {
 }
 @keyframes valide-rotation {
   0% {
-    transform: rotate(-360deg);
+    transform: rotate(180deg);
   }
-  33% {
-    transform: rotate(0deg);
-  }
-  66% {
-    transform: rotate(360deg);
+  50% {
+    transform: rotate(90deg);
   }
   100% {
     transform: rotate(0deg);
@@ -369,6 +366,16 @@ template {
     transform: scale(1);
   }
 }
+@keyframes disappear {
+  to {
+    visibility: hidden;
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 a,
 a:visited,
 a:active,
@@ -380,6 +387,31 @@ a:hover {
 
 body {
   font-family: "Roboto", sans-serif;
+}
+
+/* loader */
+.loader {
+  inset: 0;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  opacity: 0.9;
+  z-index: 10000;
+  animation: disappear 3s forwards;
+}
+.loader::before {
+  content: "Loading";
+  position: absolute;
+}
+.loader::after {
+  content: "";
+  height: 100px;
+  width: 100px;
+  border-left: 5px solid #9356DC;
+  border-radius: 50%;
+  animation: spin 3s forwards linear;
 }
 
 /* barre de navigation, logo */
@@ -579,6 +611,24 @@ nav img {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+.restaurants .carte-restaurant .detail .image:hover > .color {
+  opacity: 1;
+  transition: all 0.8s;
+}
+.restaurants .carte-restaurant .detail .image .fa-heart {
+  position: absolute;
+  top: -15px;
+  left: 15px;
+  font-size: 30px;
+}
+.restaurants .carte-restaurant .detail .image .color {
+  opacity: 0;
+  color: transparent;
+  background: linear-gradient(to top left, #9356DC 0%, #FF79DA 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 /* footer */
@@ -622,25 +672,25 @@ footer .contact {
   padding-right: 30px;
   font-family: "Shrikhand", cursive;
 }
-.conteneur .image {
+.conteneur .heart {
   position: relative;
 }
-.conteneur .image i {
+.conteneur .heart:hover > .color {
+  opacity: 1;
+  transition: all 0.8s;
+}
+.conteneur .heart .fa-heart {
   position: absolute;
-  left: -20px;
+  top: -15px;
+  left: -22px;
+  font-size: 30px;
 }
-.conteneur .image i:hover {
-  opacity: 0;
-}
-.conteneur .image .color {
+.conteneur .heart .color {
   opacity: 0;
   color: transparent;
-  -webkit-background-clip: text;
   background: linear-gradient(to top left, #9356DC 0%, #FF79DA 100%);
-}
-.conteneur .image .color:hover {
-  opacity: 1;
-  transition: all 0.5s;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 @media screen and (min-width: 992px) {
   .conteneur {

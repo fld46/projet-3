@@ -2,6 +2,7 @@
 @import "libs/_variables.scss";
 @import "libs/_placeholders.scss";
 @import "libs/_animations.scss";
+@import "libs/_mixins.scss";
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
@@ -18,6 +19,33 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+/* loader */
+
+.loader {
+    inset: 0;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    opacity: 0.9;
+    z-index: 10000;
+    animation: disappear 3s forwards;
+
+    &::before {
+        content: 'Loading';
+        position: absolute;
+    }
+
+    &::after {
+        content: '';
+        height: 100px;
+        width: 100px;
+        border-left: 5px solid $primaire;
+        border-radius: 50%;
+        animation: spin 3s forwards linear;
+    }
+}
 
 /* barre de navigation, logo */
 
@@ -253,7 +281,7 @@ nav {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
+                @include coeur(30, 15);
             }
         }
     }
@@ -307,29 +335,8 @@ footer {
 
     }
 
-    .image {
-        position: relative;
-
-        i {
-            position: absolute;
-            left: -20px;
-
-            &:hover {
-                opacity: 0;
-            }
-        }
-
-        .color {
-            opacity: 0;
-            color: transparent;
-            -webkit-background-clip: text;
-            background: linear-gradient(to top left, $primaire 0%, $secondaire 100%);
-
-            &:hover {
-                opacity: 1;
-                transition: all 0.5s;
-            }
-        }
+    .heart {
+        @include coeur(30, -22);
     }
 
     @media #{$pc} {
@@ -420,6 +427,7 @@ footer {
     animation-fill-mode: both;
     transform: scale(0);
 
+
     @for $i from 0 to 9 {
         &.delay-#{$i} {
             animation-delay: #{$i / 10}s;
@@ -460,13 +468,11 @@ footer {
     justify-content: center;
     overflow: hidden;
 
-
     .gras {
         font-weight: bold;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-
 
     }
 
@@ -475,8 +481,6 @@ footer {
         justify-content: space-between;
         width: 100%;
         margin-top: 10px;
-
-
 
         :first-child {
             width: 70%;

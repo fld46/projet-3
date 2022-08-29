@@ -1,0 +1,23 @@
+@mixin coeur ($size: 30, $left) {
+    position: relative;
+
+    &:hover>.color {
+        opacity: 1;
+        transition: all 0.8s;
+    }
+
+    .fa-heart {
+        position: absolute;
+        top: -15px;
+        left: $left+px;
+        font-size: $size+px;
+    }
+
+    .color {
+        opacity: 0;
+        color: transparent;
+        background: linear-gradient(to top left, $primaire 0%, $secondaire 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+}
