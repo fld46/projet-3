@@ -28,19 +28,20 @@ body {
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.9);
     position: fixed;
-    opacity: 0.9;
+    opacity: 0.95;
     z-index: 10000;
     animation: disappear 3s forwards;
 
     &::before {
-        content: 'Loading';
+        font-family: 'Shrikhand', cursive;
+        content: 'Ohmyfood';
         position: absolute;
     }
 
     &::after {
         content: '';
-        height: 100px;
-        width: 100px;
+        height: 110px;
+        width: 110px;
         border-left: 5px solid $primaire;
         border-radius: 50%;
         animation: spin 3s forwards linear;
