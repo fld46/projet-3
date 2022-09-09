@@ -341,10 +341,10 @@ template {
 
 @keyframes valide {
   from {
-    transform: translate(100%);
+    transform: translate(0%);
   }
   to {
-    transform: translate(0%);
+    transform: translate(-100%);
   }
 }
 @keyframes valide-rotation {
@@ -654,6 +654,13 @@ footer div :first-child {
 footer .contact {
   color: white;
 }
+@media screen and (min-width:768px) {
+  footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
 
 /*menus*/
 .conteneur {
@@ -669,7 +676,7 @@ footer .contact {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 10px;
+  padding-left: 15px;
   padding-right: 30px;
   font-family: "Shrikhand", cursive;
 }
@@ -747,9 +754,19 @@ footer .contact {
 }
 
 .border {
-  border-bottom: solid 3px #99E2D0;
   margin-bottom: 20px;
   margin-top: 20px;
+  position: relative;
+}
+.border::after {
+  content: "";
+  width: 3rem;
+  height: 0.25rem;
+  background-color: #99e2d0;
+  position: absolute;
+  top: 22px;
+  left: 0;
+  bottom: 0;
 }
 
 @media screen and (min-width: 992px) {
@@ -797,15 +814,18 @@ footer .contact {
 .plat.delay-8 {
   animation-delay: 0.8s;
 }
+.plat.delay-9 {
+  animation-delay: 0.9s;
+}
 .plat:hover > .valide {
-  display: flex;
-  animation: valide 0.5s;
+  margin-right: 0;
 }
 .plat:hover > .valide i {
   animation: valide-rotation 0.5s;
 }
 .plat .valide {
-  display: none;
+  display: flex;
+  margin: 0 -75px 0 0;
   justify-content: center;
   align-items: center;
   padding-left: 20px;
@@ -828,10 +848,15 @@ footer .contact {
   overflow: hidden;
 }
 .plats .gras {
-  font-weight: bold;
+  width: 90%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: bold;
+}
+.plats .price {
+  width: 40px;
+  font-weight: bold;
 }
 .plats .description {
   display: flex;
@@ -846,7 +871,7 @@ footer .contact {
   text-overflow: ellipsis;
 }
 .plats .description :last-child {
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

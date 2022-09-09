@@ -314,6 +314,13 @@ footer {
     .contact {
         color: white;
     }
+
+    @media #{$tablette} {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+    }
 }
 
 /*menus*/
@@ -330,7 +337,7 @@ footer {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-left: 10px;
+        padding-left: 15px;
         padding-right: 30px;
         font-family: 'Shrikhand', cursive;
 
@@ -401,9 +408,21 @@ footer {
 }
 
 .border {
-    border-bottom: solid 3px #99E2D0;
     margin-bottom: 20px;
     margin-top: 20px;
+    position: relative;
+
+    &::after {
+        content: "";
+        width: 3rem;
+        height: .25rem;
+        background-color: #99e2d0;
+        position: absolute;
+        top: 22px;
+        left: 0;
+        bottom: 0;
+    }
+
 }
 
 .menu {
@@ -413,8 +432,6 @@ footer {
 
     }
 }
-
-
 
 .plat {
     display: flex;
@@ -429,15 +446,14 @@ footer {
     transform: scale(0);
 
 
-    @for $i from 0 to 9 {
+    @for $i from 0 to 10 {
         &.delay-#{$i} {
             animation-delay: #{$i / 10}s;
         }
     }
 
     &:hover>.valide {
-        display: flex;
-        animation: valide 0.5s;
+        margin-right: 0;
 
         i {
             animation: valide-rotation 0.5s;
@@ -445,7 +461,9 @@ footer {
     }
 
     .valide {
-        display: none;
+
+        display: flex;
+        margin: 0 -75px 0 0;
         justify-content: center;
         align-items: center;
         padding-left: 20px;
@@ -454,11 +472,14 @@ footer {
         border-radius: 0px 15px 15px 0px;
         transition-duration: 0.5s;
 
+
         .fa-solid {
             color: white;
             margin: auto;
         }
     }
+
+
 }
 
 .plats {
@@ -470,11 +491,17 @@ footer {
     overflow: hidden;
 
     .gras {
-        font-weight: bold;
+        width: 90%;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        font-weight: bold;
+    }
 
+    .price {
+
+        width: 40px;
+        font-weight: bold;
     }
 
     .description {
@@ -491,7 +518,7 @@ footer {
         }
 
         :last-child {
-            margin-right: 20px;
+            margin-right: 10px;
         }
 
     }
