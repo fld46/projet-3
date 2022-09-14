@@ -336,7 +336,6 @@ template {
 }
 .plat:hover, .choix:hover {
   background-color: white;
-  box-shadow: 4px 4px 4px #898484;
 }
 
 @keyframes valide {
@@ -360,10 +359,11 @@ template {
 }
 @keyframes appear {
   0% {
-    transform: scale(0);
+    transform: translateY(20px);
   }
   100% {
-    transform: scale(1);
+    transform: translateY(0px);
+    opacity: 1;
   }
 }
 @keyframes disappear {
@@ -457,6 +457,7 @@ nav img {
 }
 
 .btn {
+  margin-top: 30px;
   height: 50px;
   border: 0px;
   color: white;
@@ -562,9 +563,6 @@ nav img {
   min-height: 30px;
   box-shadow: 4px 4px 4px rgba(187, 184, 184, 0.5);
 }
-.restaurants .carte-restaurant:hover {
-  box-shadow: 4px 4px 4px rgba(85, 82, 82, 0.5);
-}
 @media screen and (min-width:768px) {
   .restaurants .carte-restaurant {
     width: 40%;
@@ -654,11 +652,21 @@ footer div :first-child {
 footer .contact {
   color: white;
 }
+footer ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  justify-content: flex-start;
+}
+footer ul li {
+  line-height: 25px;
+}
 @media screen and (min-width:768px) {
-  footer {
+  footer ul {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-direction: row;
   }
 }
 
@@ -785,37 +793,37 @@ footer .contact {
   animation: appear 0.6s;
   animation-timing-function: cubic-bezier(0.67, 0.22, 0.35, 0.86);
   animation-fill-mode: both;
-  transform: scale(0);
+  opacity: 0;
 }
 .plat.delay-0 {
   animation-delay: 0s;
 }
 .plat.delay-1 {
-  animation-delay: 0.1s;
+  animation-delay: 0.1428571429s;
 }
 .plat.delay-2 {
-  animation-delay: 0.2s;
+  animation-delay: 0.2857142857s;
 }
 .plat.delay-3 {
-  animation-delay: 0.3s;
+  animation-delay: 0.4285714286s;
 }
 .plat.delay-4 {
-  animation-delay: 0.4s;
+  animation-delay: 0.5714285714s;
 }
 .plat.delay-5 {
-  animation-delay: 0.5s;
+  animation-delay: 0.7142857143s;
 }
 .plat.delay-6 {
-  animation-delay: 0.6s;
+  animation-delay: 0.8571428571s;
 }
 .plat.delay-7 {
-  animation-delay: 0.7s;
+  animation-delay: 1s;
 }
 .plat.delay-8 {
-  animation-delay: 0.8s;
+  animation-delay: 1.1428571429s;
 }
 .plat.delay-9 {
-  animation-delay: 0.9s;
+  animation-delay: 1.2857142857s;
 }
 .plat:hover > .valide {
   margin-right: 0;
@@ -837,6 +845,25 @@ footer .contact {
 .plat .valide .fa-solid {
   color: white;
   margin: auto;
+}
+
+.btnmenu {
+  margin-top: 30px;
+  height: 50px;
+  border: 0px;
+  width: 250px;
+  color: white;
+  font-weight: bolder;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 25px 25px 25px 25px;
+  box-shadow: 4px 4px 4px rgba(187, 184, 184, 0.5);
+  background: linear-gradient(to top left, #9356DC 0%, #FF79DA 100%);
+}
+.btnmenu:hover {
+  background: linear-gradient(to top left, #ae80e5 0%, #fface8 100%);
+  box-shadow: 4px 4px 4px #898484;
+  cursor: pointer;
 }
 
 .plats {
