@@ -297,10 +297,7 @@ footer {
     padding-bottom: 20px;
     font-size: 1rem;
 
-    h3 {
-        font-family: 'Shrikhand', cursive;
-        font-size: 1.1rem;
-    }
+
 
     div {
         height: 20px;
@@ -323,6 +320,15 @@ footer {
         li {
             line-height: 25px;
         }
+
+        .logo {
+
+            font-family: 'Shrikhand', cursive;
+            font-size: 1.1rem;
+
+        }
+
+
     }
 
     @media #{$tablette} {

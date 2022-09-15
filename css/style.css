@@ -639,10 +639,6 @@ footer {
   padding-bottom: 20px;
   font-size: 1rem;
 }
-footer h3 {
-  font-family: "Shrikhand", cursive;
-  font-size: 1.1rem;
-}
 footer div {
   height: 20px;
 }
@@ -660,6 +656,10 @@ footer ul {
 }
 footer ul li {
   line-height: 25px;
+}
+footer ul .logo {
+  font-family: "Shrikhand", cursive;
+  font-size: 1.1rem;
 }
 @media screen and (min-width:768px) {
   footer ul {
